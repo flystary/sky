@@ -1,6 +1,6 @@
 package crypto
 
-import "sky/g"
+import "github.com/flystary/sky/g"
 
 
 

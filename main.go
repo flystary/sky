@@ -2,8 +2,8 @@ package main
 
 import (
 	"runtime"
-	"sky/cmd"
-	"sky/crypto"
+	"github.com/flystary/sky/cmd"
+	"github.com/flystary/sky/crypto"
 )
 
 

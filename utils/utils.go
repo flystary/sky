@@ -13,7 +13,7 @@ import (
 	"runtime"
 	"time"
 
-	"sky/crypto"
+	"github.com/flystary/sky/crypto"
 )
 
 /* -------------------------- encoding/decoding ------------------------------ */

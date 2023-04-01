@@ -4,10 +4,10 @@ import (
 	"errors"
 	"io"
 	"log"
-	"sky/g"
+	"github.com/flystary/sky/g"
+	"github.com/flystary/sky/proto"
 	"sync"
 )
-
 
 type Buffer struct {
 	Chan chan interface{}
@@ -18,7 +18,6 @@ func NewBuffer() *Buffer {
 		Chan: make(chan interface{}, g.BUFFER_SIZE),
 	}
 }
-
 
 type DataBuffer struct {
 	// 数据信道缓冲区
@@ -37,19 +36,19 @@ func NewDataBuffer() *DataBuffer {
 	}
 }
 
-func (buffer *Buffer) ReadLowLevelPacket() (protocol.Packet, error) {
+func (buffer *Buffer) ReadLowLevelPacket() (proto.Packet, error) {
 	packet := <-buffer.Chan
 	switch packet.(type) {
-	case protocol.Packet:
-		return packet.(protocol.Packet), nil
+	case proto.Packet:
+		return packet.(proto.Packet), nil
 	case error:
-		return protocol.Packet{}, io.EOF
+		return proto.Packet{}, io.EOF
 	default:
-		return protocol.Packet{}, errors.New("Data Type Error")
+		return proto.Packet{}, errors.New("Data Type Error")
 	}
 }
 
-func (buffer *Buffer) ReadPacket(packetHeader *protocol.PacketHeader, packetData interface{}) error {
+func (buffer *Buffer) ReadPacket(packetHeader *proto.PacketHeader, packetData interface{}) error {
 	packet, err := buffer.ReadLowLevelPacket()
 	if err != nil {
 		return err
@@ -63,7 +62,7 @@ func (buffer *Buffer) ReadPacket(packetHeader *protocol.PacketHeader, packetData
 	return nil
 }
 
-func (buffer *Buffer) WriteLowLevelPacket(packet protocol.Packet) {
+func (buffer *Buffer) WriteLowLevelPacket(packet proto.Packet) {
 	buffer.Chan <- packet
 }
 

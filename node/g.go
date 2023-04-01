@@ -1,7 +1,6 @@
 package node
 
-import "sky/utils"
-
+import "github.com/flystary/sky/utils"
 
 // CurrentNode 当前节点
 var CurrentNode = Node{
@@ -13,7 +12,7 @@ var CurrentNode = Node{
 	// Socks5SessionIDLock: nil,
 }
 
-var GNetworkTopology = NetworkTopology {
+var GNetworkTopology = NetworkTopology{
 	RouteTable: make(map[string]string),
 	NetworkMap: make(map[string]([]string)),
 }
