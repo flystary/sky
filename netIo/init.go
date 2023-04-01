@@ -1,3 +1,5 @@
+//go:build linux && amd64
+
 package netIo
 
 import (
@@ -6,6 +8,7 @@ import (
 	"log"
 	"net"
 	"reflect"
+
 	"github.com/flystary/sky/crypto"
 	"github.com/flystary/sky/g"
 	"github.com/flystary/sky/utils"

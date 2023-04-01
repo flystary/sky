@@ -1,6 +1,5 @@
-// +build linux
-// +build amd64 386
-//  reuse port
+//go:build linux && (amd64 || 386)
+
 package utils
 
 import (

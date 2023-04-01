@@ -1,5 +1,5 @@
-//go:build !386
-//go:build !amd64
+//go:build linux !386
+//go:build linux !amd64
 
 package netIo
 
