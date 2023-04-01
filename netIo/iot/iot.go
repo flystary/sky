@@ -1,7 +1,4 @@
-//go:build linux !386
-//go:build linux !amd64
-
-package netIo
+package iot
 
 import (
 	"errors"
